@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
 body {
   font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans JP", sans-serif;
   color: #111;
@@ -20,23 +25,32 @@ ul {
   list-style: none;
 }
 
+/* 読み込み時のフェードイン（後で読み込み中UIを入れる場所） */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #000;
+  transition: opacity 1.2s ease;
+}
+
+body.loaded .curtain {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* header */
 .site-header {
-  position: absolute;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+  z-index: 100;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 6vw;
+  padding: 0 6vw;
+  background: #000;
   color: #fff;
-}
-
-.site-header--static {
-  position: static;
-  color: #111;
 }
 
 .site-header nav {
@@ -54,13 +68,9 @@ ul {
 
 .hero-sticky {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 64px;
+  height: calc(100vh - 64px);
   overflow: hidden;
-}
-
-#profile {
-  padding-top: 240px;
 }
 
 .hero-video {
@@ -74,7 +84,8 @@ ul {
 .hero-caption {
   position: absolute;
   left: 6vw;
-  bottom: 12vh;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .hero-title {
@@ -84,6 +95,10 @@ ul {
 /* sections */
 .section {
   padding: 120px 6vw;
+}
+
+#profile {
+  padding-top: 240px;
 }
 
 .section h2 {
@@ -103,19 +118,47 @@ ul {
   border-bottom: 1px solid #ddd;
 }
 
-/* works */
-.works {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 24px;
-}
-
 .thumb {
   aspect-ratio: 16 / 9;
   background: #ddd;
 }
 
-.works p {
+/* works */
+.section--works {
+  overflow: hidden;
+}
+
+.category + .category {
+  margin-top: 80px;
+}
+
+.category h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 24px;
+}
+
+.carousel {
+  --w: 36vw;     /* 1枚の幅 */
+  --scale: 1.2;  /* 中央の拡大率 */
+  --gap: 1.2;    /* 隣との間隔（幅に対する倍率） */
+  position: relative;
+  margin: 0 -6vw;
+  height: calc(var(--w) * 0.5625 * var(--scale) + 64px);
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+.carousel-track li {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--w) * 0.5625 * (var(--scale) - 1) / 2);
+  width: var(--w);
+}
+
+.carousel-track p {
   margin-top: 12px;
 }
 
@@ -126,10 +169,8 @@ ul {
   gap: 24px;
 }
 
-.projects a {
-  display: block;
-  padding: 24px;
-  border: 1px solid #ddd;
+.projects .thumb {
+  margin-bottom: 12px;
 }
 
 .project-type {
@@ -139,8 +180,35 @@ ul {
 
 /* footer */
 .site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 48px 6vw;
-  border-top: 1px solid #ddd;
+  background: #000;
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-links .icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #555;
+}
+
+.to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 32px;
+  background: #fff;
+  color: #000;
 }
 
 /* work detail */
@@ -169,12 +237,40 @@ ul {
 @media (max-width: 768px) {
   .site-header nav {
     gap: 16px;
+    font-size: 14px;
   }
-  .works,
+  .hero-title {
+    font-size: 20px;
+  }
+  .section {
+    padding: 80px 6vw;
+  }
+  #profile {
+    padding-top: 160px;
+  }
+  .section h2 {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+  .category + .category {
+    margin-top: 56px;
+  }
+  .category h3 {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  .carousel {
+    --w: 62vw;
+    --scale: 1.1;
+    --gap: 1.18;
+  }
   .projects {
     grid-template-columns: 1fr;
   }
   .history {
     grid-template-columns: 90px 1fr;
+  }
+  .work h1 {
+    font-size: 20px;
   }
 }

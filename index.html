@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>氏名 | Portfolio</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
-<body>
+<body id="top">
+
+<div class="curtain"></div>
 
 <header class="site-header">
   <a class="site-name" href="./">氏名</a>
@@ -18,8 +20,8 @@
 </header>
 
 <section class="hero">
-  <!-- 背景映像: assets/hero.mp4 を置いて src を指定 -->
   <div class="hero-sticky">
+    <!-- 背景映像: assets/hero.mp4 を置いて src を指定 -->
     <video class="hero-video" autoplay muted loop playsinline></video>
     <div class="hero-caption">
       <p class="hero-title">作品名</p>
@@ -38,32 +40,93 @@
     </dl>
   </section>
 
-  <section id="works" class="section">
+  <section id="works" class="section section--works">
     <h2>Works</h2>
-    <ul class="works">
-      <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
-      <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
-      <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
-      <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
-      <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
-      <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
-    </ul>
+    <div class="category">
+      <h3>映像</h3>
+      <div class="carousel">
+        <ul class="carousel-track">
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="category">
+      <h3>ゲーム</h3>
+      <div class="carousel">
+        <ul class="carousel-track">
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="category">
+      <h3>グループ制作</h3>
+      <div class="carousel">
+        <ul class="carousel-track">
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="category">
+      <h3>イラスト</h3>
+      <div class="carousel">
+        <ul class="carousel-track">
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="category">
+      <h3>ファイン</h3>
+      <div class="carousel">
+        <ul class="carousel-track">
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        <li><a href="works/work-01.html"><div class="thumb"></div><p>作品名</p></a></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="projects" class="section">
     <h2>Projects</h2>
     <ul class="projects">
-      <li><a href="#"><p class="project-type">サークル</p><p>名称</p></a></li>
-      <li><a href="#"><p class="project-type">ゲーム</p><p>名称</p></a></li>
-      <li><a href="#"><p class="project-type">企画書</p><p>名称</p></a></li>
+      <li><a href="#"><div class="thumb"></div><p class="project-type">サークル</p><p>名称</p></a></li>
+      <li><a href="#"><div class="thumb"></div><p class="project-type">ゲーム</p><p>名称</p></a></li>
+      <li><a href="#"><div class="thumb"></div><p class="project-type">企画書</p><p>名称</p></a></li>
     </ul>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <a href="mailto:">Mail</a>
+  <div class="footer-links">
+    <a href="mailto:">Mail</a>
+    <a class="icon" href="#" aria-label="X"></a>
+    <a class="icon" href="#" aria-label="Instagram"></a>
+    <a class="icon" href="#" aria-label="GitHub"></a>
+  </div>
+  <a class="to-top" href="#top" aria-label="Top">
+    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+  </a>
 </footer>
 
+<script src="script.js?v=1"></script>
 </body>
 </html>
