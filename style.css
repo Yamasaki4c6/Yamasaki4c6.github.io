@@ -124,10 +124,6 @@ body.loaded .curtain {
 }
 
 /* works */
-.section--works {
-  overflow: hidden;
-}
-
 .category + .category {
   margin-top: 80px;
 }
@@ -139,23 +135,34 @@ body.loaded .curtain {
 }
 
 .carousel {
-  --w: 36vw;     /* 1枚の幅 */
-  --scale: 1.2;  /* 中央の拡大率 */
-  --gap: 1.2;    /* 隣との間隔（幅に対する倍率） */
-  position: relative;
   margin: 0 -6vw;
-  height: calc(var(--w) * 0.5625 * var(--scale) + 64px);
+  padding: 16px 0;
+  overflow: hidden;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
   cursor: grab;
 }
 
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  will-change: transform;
+}
+
 .carousel-track li {
-  position: absolute;
-  left: 50%;
-  top: calc(var(--w) * 0.5625 * (var(--scale) - 1) / 2);
-  width: var(--w);
+  flex: none;
+  width: 18vw;
+}
+
+.carousel-track .thumb {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-track a:hover .thumb {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .carousel-track p {
@@ -259,10 +266,15 @@ body.loaded .curtain {
     font-size: 15px;
     margin-bottom: 16px;
   }
-  .carousel {
-    --w: 62vw;
-    --scale: 1.1;
-    --gap: 1.18;
+  .carousel-track {
+    gap: 16px;
+  }
+  .carousel-track li {
+    width: 31vw;
+  }
+  .carousel-track p {
+    font-size: 12px;
+    margin-top: 8px;
   }
   .projects {
     grid-template-columns: 1fr;
